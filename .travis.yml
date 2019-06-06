@@ -1,9 +1,9 @@
 sudo: required
 services:
-        - docker
+        - docker-compose
 
 before_install:
-        - docker build -t mavsvl/docker-react -f Dockerfile.dev .
+        - docker-compose build tests
 
 script:
-        - docker run mavsvl/docker-react npm run test -- --coverage
+        - docker-compose run --rm tests
